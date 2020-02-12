@@ -179,9 +179,12 @@ class FirstViewController: UIViewController {
         guessPool.append("M")
         updateScreen()
     }
+    @IBOutlet weak var LivesVal: UILabel!
+    @IBOutlet weak var ScoreVal: UILabel!
     var correctWord = ""
     var guess = ""
     var lives = 3
+    var correct = false
     
     var guessPool : [String] = []
     var secretWord = ""
@@ -189,25 +192,29 @@ class FirstViewController: UIViewController {
     var questionCategory = ""
     var numberOfQuestions = 1
     var questionArray: Array<QuestionOBJ> = Array()
+    var currentQuestionIndex = 0
+    var score = 0
+    var questionIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         readQuestionsIntoArray(category: questionCategory)
-        
-        populateScreen(question: questionArray[0])
+        populateScreen(question: questionArray[questionIndex])
+        ScoreVal.text = String(score)
     }
     
     func readQuestionsIntoArray(category: String){
-        let myDictionary:[String:String] = ["Question 1": " 1", "Question 2": " 2", "Question 3": " 3", "Question 4": " 4", "Question 5": " 5"]
+        let myDictionary:[String:String] = ["🐍🐍✈️": "snake on a plane", "👸👰": "princess bride", "🐺🗽💰": "wolf of wallstreet", "✈️🚆🚗": "planes trains and automobiles", "🏠🎉": "House Party"]
         
         for key in myDictionary.keys {
-            let tempQuestion = QuestionOBJ(Question: myDictionary[key]!, Answer: key)
+            let tempQuestion = QuestionOBJ(Question: myDictionary[key]!, Answer: key.uppercased())
             questionArray.append(tempQuestion)
         }
+        
+        questionArray.shuffle()
     }
     
     func updateScreen() {
-        print(guessPool)
-        secretWord = String(correctWord.map{
+        secretWord = String(correctWord.uppercased().map{
             if $0 == " " {
                 return $0
             }
@@ -217,16 +224,36 @@ class FirstViewController: UIViewController {
             return "-"
         })
         CorrectLabel.text = secretWord
+        print((secretWord, correctWord))
+        if secretWord == correctWord.uppercased() {
+            correct = true
+            score += 1
+            ScoreVal.text = String(score)
+            questionIndex += 1
+            if questionIndex < numberOfQuestions {
+                populateScreen(question: questionArray[questionIndex])
+            } else if lives == 0{
+                //end game, user has lost
+            }else{
+                //ask user for their username
+                //add it to the high scores
+                //display highscore view
+            }
+        }
+    }
+    
+    func resetVals() {
+        guessPool = []
     }
     
     func populateScreen(question: QuestionOBJ){
-        
-        correctWord = question.Answer
-        updateEmoji(question: correctWord)
+        correctWord = question.Question
+        updateEmoji(question: question.Answer)
         updateScreen()
     }
     
     func updateEmoji(question: String){
+        //https://byjeevan.blogspot.com/2019/01/animating-label-text-update-choosing.html
         let animation:CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
             CAMediaTimingFunctionName.easeInEaseOut)
@@ -235,7 +262,5 @@ class FirstViewController: UIViewController {
         animation.duration = 0.25
         EmojiLabel.layer.add(animation, forKey: CATransitionType.push.rawValue)
     }
-
-
 }
 
