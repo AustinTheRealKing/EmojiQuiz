@@ -204,7 +204,7 @@ class FirstViewController: UIViewController {
     
     func readQuestionsIntoArray(category: String){
         let myDictionary:[String:String] = ["🐍🐍✈️": "snake on a plane", "👸👰": "princess bride", "🐺🗽💰": "wolf of wallstreet", "✈️🚆🚗": "planes trains and automobiles", "🏠🎉": "House Party"]
-        
+        //category decisions
         for key in myDictionary.keys {
             let tempQuestion = QuestionOBJ(Question: myDictionary[key]!, Answer: key.uppercased())
             questionArray.append(tempQuestion)
@@ -245,6 +245,7 @@ class FirstViewController: UIViewController {
     
     func resetVals() {
         guessPool = []
+        //try to figure out a cleaner way of doing this
         QButton.isHidden = false
         WButton.isHidden = false
         EButton.isHidden = false
