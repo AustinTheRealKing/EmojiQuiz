@@ -231,6 +231,7 @@ class FirstViewController: UIViewController {
             ScoreVal.text = String(score)
             questionIndex += 1
             if questionIndex < numberOfQuestions {
+                resetVals()
                 populateScreen(question: questionArray[questionIndex])
             } else if lives == 0{
                 //end game, user has lost
@@ -244,6 +245,32 @@ class FirstViewController: UIViewController {
     
     func resetVals() {
         guessPool = []
+        QButton.isHidden = false
+        WButton.isHidden = false
+        EButton.isHidden = false
+        RButton.isHidden = false
+        TButton.isHidden = false
+        YButton.isHidden = false
+        UButton.isHidden = false
+        IButton.isHidden = false
+        OButton.isHidden = false
+        PButton.isHidden = false
+        AButton.isHidden = false
+        SButton.isHidden = false
+        DButton.isHidden = false
+        FButton.isHidden = false
+        GButton.isHidden = false
+        HButton.isHidden = false
+        JButton.isHidden = false
+        KButton.isHidden = false
+        LButton.isHidden = false
+        ZButton.isHidden = false
+        XButton.isHidden = false
+        CButton.isHidden = false
+        VButton.isHidden = false
+        BButton.isHidden = false
+        NButton.isHidden = false
+        MButton.isHidden = false
     }
     
     func populateScreen(question: QuestionOBJ){
