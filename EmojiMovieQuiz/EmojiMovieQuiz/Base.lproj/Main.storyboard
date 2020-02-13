@@ -464,13 +464,14 @@
                         <outlet property="XButton" destination="2Ib-33-Dfa" id="KLR-8z-Te0"/>
                         <outlet property="YButton" destination="MQD-Fg-IHR" id="5Wu-9u-97c"/>
                         <outlet property="ZButton" destination="mVu-mw-WSW" id="8hn-Ng-ckP"/>
+                        <outlet property="livesVal" destination="Uor-ln-emx" id="C1x-H6-3I7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1400.8" y="-432.26600985221677"/>
         </scene>
-        <!--Second-->
+        <!-- -->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="EmojiMovieQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -499,7 +500,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title=" " image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -524,11 +525,11 @@
             </objects>
             <point key="canvasLocation" x="-1394" y="-93"/>
         </scene>
-        <!--Item-->
+        <!--Play-->
         <scene sceneID="2Ru-0D-rfJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hmc-xc-0NF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="first" id="zpI-bH-62M"/>
+                    <tabBarItem key="tabBarItem" title="Play" selectedImage="first" id="zpI-bH-62M"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Ipt-7R-fB5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kji-BP-FM6">

@@ -197,20 +197,28 @@ class FirstViewController: UIViewController {
     var questionIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        LivesVal.text = String(lives)
         readQuestionsIntoArray(category: questionCategory)
+        print(questionArray)
         populateScreen(question: questionArray[questionIndex])
         ScoreVal.text = String(score)
     }
     
     func readQuestionsIntoArray(category: String){
-        let myDictionary:[String:String] = ["🐍🐍✈️": "snake on a plane", "👸👰": "princess bride", "🐺🗽💰": "wolf of wallstreet", "✈️🚆🚗": "planes trains and automobiles", "🏠🎉": "House Party"]
-        //category decisions
-        for key in myDictionary.keys {
-            let tempQuestion = QuestionOBJ(Question: myDictionary[key]!, Answer: key.uppercased())
-            questionArray.append(tempQuestion)
-        }
-        
+        let filename: String?
+          if questionCategory == "Movie"{
+            filename = "movies.plist"
+            } else {
+             filename = "music.plist"
+         }
+        if let fn = filename, let path = Bundle.main.url(forResource: fn, withExtension: nil), let dict = NSDictionary(contentsOf: path) as? [String : String] {
+                 for (key, value) in dict {
+                    let question = QuestionOBJ(Question: value, Answer: key)
+                questionArray.append(question)
+            }
+
         questionArray.shuffle()
+    }
     }
     
     func updateScreen() {
@@ -221,8 +229,25 @@ class FirstViewController: UIViewController {
             if guessPool.contains(String($0)) {
                 return $0
             }
+            /*if guessPool.contains(String($0)) {
+                lives -= 1
+                LivesVal.text = String(lives)
+            }
+             */
+            
             return "-"
         })
+        if !guessPool.isEmpty{
+            if !correctWord.contains(String(guessPool.last!)){
+            lives -= 1
+            LivesVal.text = String(lives)
+            }
+        }
+        if lives <= 0 {
+            let ac = UIAlertController(title: "You fuckin chomo", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(ac, animated: true)
+        }
         CorrectLabel.text = secretWord
         print((secretWord, correctWord))
         if secretWord == correctWord.uppercased() {
@@ -233,9 +258,7 @@ class FirstViewController: UIViewController {
             if questionIndex < numberOfQuestions {
                 resetVals()
                 populateScreen(question: questionArray[questionIndex])
-            } else if lives == 0{
-                //end game, user has lost
-            }else{
+            } else {
                 //ask user for their username
                 //add it to the high scores
                 //display highscore view
@@ -291,4 +314,5 @@ class FirstViewController: UIViewController {
         EmojiLabel.layer.add(animation, forKey: CATransitionType.push.rawValue)
     }
 }
+
 
