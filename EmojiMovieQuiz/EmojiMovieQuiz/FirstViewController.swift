@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 struct QuestionOBJ {
     var Question:String = ""
@@ -181,6 +182,7 @@ class FirstViewController: UIViewController {
     }
     @IBOutlet weak var LivesVal: UILabel!
     @IBOutlet weak var ScoreVal: UILabel!
+    
     var correctWord = ""
     var guess = ""
     var lives = 3
@@ -195,15 +197,42 @@ class FirstViewController: UIViewController {
     var currentQuestionIndex = 0
     var score = 0
     var questionIndex = 0
+    var played: AVAudioPlayer?
+   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.setValue(0, forKey: "thirdpscore")
+        UserDefaults.standard.setValue(0, forKey: "secpscore")
+        UserDefaults.standard.setValue(0, forKey: "fpscore")
+        UserDefaults.standard.setValue("p1", forKey: "thirdpname")
+        UserDefaults.standard.setValue("p2", forKey: "secpname")
+        UserDefaults.standard.setValue("p3", forKey: "fpname")
         LivesVal.text = String(lives)
         readQuestionsIntoArray(category: questionCategory)
         print(questionArray)
         populateScreen(question: questionArray[questionIndex])
         ScoreVal.text = String(score)
+        
     }
-    
+    func makenoise(){
+            if let path = Bundle.main.url(forResource: "example.mp3", withExtension: nil){
+             
+            do{
+                let sound = AVAudioSession.sharedInstance()
+                try! sound.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+                played = try AVAudioPlayer(contentsOf: path)
+                played?.play()
+            } catch let error{
+                print(error.localizedDescription)
+            }
+        
+            } else {
+                print("reee")
+        }
+        
+    }
     func readQuestionsIntoArray(category: String){
         let filename: String?
           if questionCategory == "Movie"{
@@ -222,6 +251,7 @@ class FirstViewController: UIViewController {
     }
     
     func updateScreen() {
+        makenoise()
         secretWord = String(correctWord.uppercased().map{
             if $0 == " " {
                 return $0
@@ -229,23 +259,17 @@ class FirstViewController: UIViewController {
             if guessPool.contains(String($0)) {
                 return $0
             }
-            /*if guessPool.contains(String($0)) {
-                lives -= 1
-                LivesVal.text = String(lives)
-            }
-             */
-            
             return "-"
         })
         if !guessPool.isEmpty{
-            if !correctWord.contains(String(guessPool.last!)){
+            if !correctWord.uppercased().contains(String(guessPool.last!)){
             lives -= 1
             LivesVal.text = String(lives)
             }
         }
         if lives <= 0 {
-            let ac = UIAlertController(title: "You fuckin chomo", message: nil, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let ac = UIAlertController(title: "You failed", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Back", style: .cancel, handler: nil))
             present(ac, animated: true)
         }
         CorrectLabel.text = secretWord
@@ -259,9 +283,35 @@ class FirstViewController: UIViewController {
                 resetVals()
                 populateScreen(question: questionArray[questionIndex])
             } else {
-                //ask user for their username
-                //add it to the high scores
-                //display highscore view
+              let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+               ac.addTextField()
+
+               let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+                let answer = ac.textFields![0]
+                let sanswer = answer.text
+                if self.score > UserDefaults.standard.integer(forKey: "fpscore"){
+                   print("fuck")
+                    UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "secpscore"), forKey: "thirdpscore")
+                     UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "fpscore"), forKey: "secpscore")
+                    UserDefaults.standard.setValue(self.score, forKey: "fpscore")
+                    UserDefaults.standard.setValue(UserDefaults.standard.string(forKey: "secpname"), forKey: "thirdpname")
+                     UserDefaults.standard.setValue(UserDefaults.standard.string(forKey: "fpname"), forKey: "secpname")
+                    UserDefaults.standard.setValue(sanswer, forKey: "fpname")
+                    print(UserDefaults.standard.string(forKey: "fpname")!)
+                } else if self.score > UserDefaults.standard.integer(forKey: "secpscore") {
+                    UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "secpscore"), forKey: "thirdpscore")
+                    UserDefaults.standard.setValue(self.score, forKey: "secpscore")
+                    UserDefaults.standard.setValue(UserDefaults.standard.string(forKey: "secpname"), forKey: "thirdpname")
+                    UserDefaults.standard.setValue(sanswer, forKey: "secpname")
+                } else if self.score > UserDefaults.standard.integer(forKey: "secpscore"){
+                UserDefaults.standard.setValue(self.score, forKey: "thirdpscore")
+                UserDefaults.standard.setValue(sanswer, forKey: "thirdpname")
+           
+               }
+            }
+               ac.addAction(submitAction)
+
+               present(ac, animated: true)
             }
         }
     }

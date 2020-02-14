@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01063A7B23F657030041CA98 /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01063A7A23F657030041CA98 /* example.mp3 */; };
+		011218D923F4F50A008AD1EA /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D723F4F440008AD1EA /* music.plist */; };
+		011218DA23F4F50F008AD1EA /* movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D523F4F43A008AD1EA /* movies.plist */; };
+		011218DB23F4F527008AD1EA /* movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D523F4F43A008AD1EA /* movies.plist */; };
+		011218DC23F4F528008AD1EA /* movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D523F4F43A008AD1EA /* movies.plist */; };
+		011218DD23F4F52A008AD1EA /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D723F4F440008AD1EA /* music.plist */; };
+		011218DE23F4F52B008AD1EA /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011218D723F4F440008AD1EA /* music.plist */; };
 		FF10C2FD23F3D70F00754C80 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF10C2FC23F3D70F00754C80 /* StartViewController.swift */; };
 		FF36CA6D23F0A878004F5DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36CA6C23F0A878004F5DCB /* AppDelegate.swift */; };
 		FF36CA6F23F0A878004F5DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36CA6E23F0A878004F5DCB /* SceneDelegate.swift */; };
@@ -15,8 +22,6 @@
 		FF36CA7623F0A878004F5DCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF36CA7423F0A878004F5DCB /* Main.storyboard */; };
 		FF36CA7823F0A879004F5DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF36CA7723F0A879004F5DCB /* Assets.xcassets */; };
 		FF36CA7B23F0A879004F5DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF36CA7923F0A879004F5DCB /* LaunchScreen.storyboard */; };
-		FF36CA8623F0A879004F5DCB /* EmojiMovieQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36CA8523F0A879004F5DCB /* EmojiMovieQuizTests.swift */; };
-		FF36CA9123F0A879004F5DCB /* EmojiMovieQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36CA9023F0A879004F5DCB /* EmojiMovieQuizUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01063A7A23F657030041CA98 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = example.mp3; path = tests/example.mp3; sourceTree = "<group>"; };
+		011218D523F4F43A008AD1EA /* movies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = movies.plist; path = tests/movies.plist; sourceTree = "<group>"; };
+		011218D723F4F440008AD1EA /* music.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = music.plist; path = tests/music.plist; sourceTree = "<group>"; };
 		FF10C2FC23F3D70F00754C80 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		FF36CA6923F0A878004F5DCB /* EmojiMovieQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiMovieQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF36CA6C23F0A878004F5DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,11 +56,7 @@
 		FF36CA7A23F0A879004F5DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF36CA7C23F0A879004F5DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF36CA8123F0A879004F5DCB /* EmojiMovieQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojiMovieQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF36CA8523F0A879004F5DCB /* EmojiMovieQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMovieQuizTests.swift; sourceTree = "<group>"; };
-		FF36CA8723F0A879004F5DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF36CA8C23F0A879004F5DCB /* EmojiMovieQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojiMovieQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF36CA9023F0A879004F5DCB /* EmojiMovieQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMovieQuizUITests.swift; sourceTree = "<group>"; };
-		FF36CA9223F0A879004F5DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				FF36CA6B23F0A878004F5DCB /* EmojiMovieQuiz */,
-				FF36CA8423F0A879004F5DCB /* EmojiMovieQuizTests */,
-				FF36CA8F23F0A879004F5DCB /* EmojiMovieQuizUITests */,
 				FF36CA6A23F0A878004F5DCB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +109,9 @@
 				FF36CA6E23F0A878004F5DCB /* SceneDelegate.swift */,
 				FF36CA7023F0A878004F5DCB /* FirstViewController.swift */,
 				FF36CA7223F0A878004F5DCB /* SecondViewController.swift */,
+				011218D723F4F440008AD1EA /* music.plist */,
+				011218D523F4F43A008AD1EA /* movies.plist */,
+				01063A7A23F657030041CA98 /* example.mp3 */,
 				FF10C2FC23F3D70F00754C80 /* StartViewController.swift */,
 				FF36CA7423F0A878004F5DCB /* Main.storyboard */,
 				FF36CA7723F0A879004F5DCB /* Assets.xcassets */,
@@ -114,24 +119,6 @@
 				FF36CA7C23F0A879004F5DCB /* Info.plist */,
 			);
 			path = EmojiMovieQuiz;
-			sourceTree = "<group>";
-		};
-		FF36CA8423F0A879004F5DCB /* EmojiMovieQuizTests */ = {
-			isa = PBXGroup;
-			children = (
-				FF36CA8523F0A879004F5DCB /* EmojiMovieQuizTests.swift */,
-				FF36CA8723F0A879004F5DCB /* Info.plist */,
-			);
-			path = EmojiMovieQuizTests;
-			sourceTree = "<group>";
-		};
-		FF36CA8F23F0A879004F5DCB /* EmojiMovieQuizUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FF36CA9023F0A879004F5DCB /* EmojiMovieQuizUITests.swift */,
-				FF36CA9223F0A879004F5DCB /* Info.plist */,
-			);
-			path = EmojiMovieQuizUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +225,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011218DA23F4F50F008AD1EA /* movies.plist in Resources */,
+				011218D923F4F50A008AD1EA /* music.plist in Resources */,
 				FF36CA7B23F0A879004F5DCB /* LaunchScreen.storyboard in Resources */,
+				01063A7B23F657030041CA98 /* example.mp3 in Resources */,
 				FF36CA7823F0A879004F5DCB /* Assets.xcassets in Resources */,
 				FF36CA7623F0A878004F5DCB /* Main.storyboard in Resources */,
 			);
@@ -248,6 +238,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011218DD23F4F52A008AD1EA /* music.plist in Resources */,
+				011218DB23F4F527008AD1EA /* movies.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011218DE23F4F52B008AD1EA /* music.plist in Resources */,
+				011218DC23F4F528008AD1EA /* movies.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF36CA8623F0A879004F5DCB /* EmojiMovieQuizTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF36CA9123F0A879004F5DCB /* EmojiMovieQuizUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
